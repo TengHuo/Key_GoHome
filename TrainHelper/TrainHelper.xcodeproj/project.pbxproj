@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A42B72F61CBA9C0500AE8D40 /* TrainListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */; };
+		A42B72FB1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */; };
 		A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E791CBA940B00EF9609 /* AppDelegate.swift */; };
-		A4780E7C1CBA940B00EF9609 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E7B1CBA940B00EF9609 /* ViewController.swift */; };
+		A4780E7C1CBA940B00EF9609 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E7B1CBA940B00EF9609 /* MapViewController.swift */; };
 		A4780E7F1CBA940B00EF9609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4780E7D1CBA940B00EF9609 /* Main.storyboard */; };
 		A4780E821CBA940B00EF9609 /* TrainHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4780E801CBA940B00EF9609 /* TrainHelper.xcdatamodeld */; };
 		A4780E841CBA940B00EF9609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4780E831CBA940B00EF9609 /* Assets.xcassets */; };
 		A4780E871CBA940B00EF9609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */; };
 		A4780E921CBA940B00EF9609 /* TrainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E911CBA940B00EF9609 /* TrainHelperTests.swift */; };
 		A4780E9D1CBA940B00EF9609 /* TrainHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */; };
+		CA0A56A97F4A105E536ACC13 /* Pods_TrainHelperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99A55E298CBF02A854664D6 /* Pods_TrainHelperTests.framework */; };
+		F076E5B34FD292946DFB10EC /* Pods_TrainHelperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4474B2497BFA4D0A675FC356 /* Pods_TrainHelperUITests.framework */; };
+		F6F64298896DFB934C020ADE /* Pods_TrainHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94E95EA0C22F9B64BE5C311 /* Pods_TrainHelper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +40,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		081A703F33EE5D47EA11F21A /* Pods-TrainHelperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelperUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelperUITests/Pods-TrainHelperUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1558F3E83980B927E9EA1C7A /* Pods-TrainHelperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelperTests/Pods-TrainHelperTests.release.xcconfig"; sourceTree = "<group>"; };
+		4474B2497BFA4D0A675FC356 /* Pods_TrainHelperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainHelperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		593E60BE376C1C1F093F06FF /* Pods-TrainHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelper/Pods-TrainHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		879CFAE238D97050BC6BEFFA /* Pods-TrainHelperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelperTests/Pods-TrainHelperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C4FFC4AF878C684A29909C2 /* Pods-TrainHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelper/Pods-TrainHelper.release.xcconfig"; sourceTree = "<group>"; };
+		A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainListTableViewController.swift; sourceTree = "<group>"; };
+		A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TrainHelper-Bridging-Header.h"; sourceTree = "<group>"; };
 		A4780E761CBA940B00EF9609 /* TrainHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4780E791CBA940B00EF9609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A4780E7B1CBA940B00EF9609 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A4780E7B1CBA940B00EF9609 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A4780E7E1CBA940B00EF9609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4780E811CBA940B00EF9609 /* TrainHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrainHelper.xcdatamodel; sourceTree = "<group>"; };
 		A4780E831CBA940B00EF9609 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +62,9 @@
 		A4780E981CBA940B00EF9609 /* TrainHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainHelperUITests.swift; sourceTree = "<group>"; };
 		A4780E9E1CBA940B00EF9609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A921B0E60EDC48239757247D /* Pods-TrainHelperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelperUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelperUITests/Pods-TrainHelperUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A99A55E298CBF02A854664D6 /* Pods_TrainHelperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainHelperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F94E95EA0C22F9B64BE5C311 /* Pods_TrainHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F64298896DFB934C020ADE /* Pods_TrainHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0A56A97F4A105E536ACC13 /* Pods_TrainHelperTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +88,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F076E5B34FD292946DFB10EC /* Pods_TrainHelperUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3926C56BD07234241CADB92C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F94E95EA0C22F9B64BE5C311 /* Pods_TrainHelper.framework */,
+				A99A55E298CBF02A854664D6 /* Pods_TrainHelperTests.framework */,
+				4474B2497BFA4D0A675FC356 /* Pods_TrainHelperUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5890834CF2915F2E2DD3E903 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				593E60BE376C1C1F093F06FF /* Pods-TrainHelper.debug.xcconfig */,
+				9C4FFC4AF878C684A29909C2 /* Pods-TrainHelper.release.xcconfig */,
+				879CFAE238D97050BC6BEFFA /* Pods-TrainHelperTests.debug.xcconfig */,
+				1558F3E83980B927E9EA1C7A /* Pods-TrainHelperTests.release.xcconfig */,
+				A921B0E60EDC48239757247D /* Pods-TrainHelperUITests.debug.xcconfig */,
+				081A703F33EE5D47EA11F21A /* Pods-TrainHelperUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A4780E6D1CBA940B00EF9609 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +125,8 @@
 				A4780E901CBA940B00EF9609 /* TrainHelperTests */,
 				A4780E9B1CBA940B00EF9609 /* TrainHelperUITests */,
 				A4780E771CBA940B00EF9609 /* Products */,
+				5890834CF2915F2E2DD3E903 /* Pods */,
+				3926C56BD07234241CADB92C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				A4780E791CBA940B00EF9609 /* AppDelegate.swift */,
-				A4780E7B1CBA940B00EF9609 /* ViewController.swift */,
+				A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */,
+				A4780E7B1CBA940B00EF9609 /* MapViewController.swift */,
+				A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */,
 				A4780E7D1CBA940B00EF9609 /* Main.storyboard */,
 				A4780E831CBA940B00EF9609 /* Assets.xcassets */,
 				A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */,
@@ -135,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4780EA11CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelper" */;
 			buildPhases = (
+				EBE54E4BD867B64B0D3ADDD1 /* Check Pods Manifest.lock */,
 				A4780E721CBA940B00EF9609 /* Sources */,
 				A4780E731CBA940B00EF9609 /* Frameworks */,
 				A4780E741CBA940B00EF9609 /* Resources */,
+				6BB74BEBD6A7FA36F4DD1F50 /* Embed Pods Frameworks */,
+				D9B53605A2502CAFA681B590 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4780EA41CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperTests" */;
 			buildPhases = (
+				A858D951C4B1387BF8777F79 /* Check Pods Manifest.lock */,
 				A4780E891CBA940B00EF9609 /* Sources */,
 				A4780E8A1CBA940B00EF9609 /* Frameworks */,
 				A4780E8B1CBA940B00EF9609 /* Resources */,
+				44B7A6291BE3EA8281BD062C /* Embed Pods Frameworks */,
+				C58BF70A6928A8FF90CC8129 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4780EA71CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperUITests" */;
 			buildPhases = (
+				A179CD7D9C402F6F55C7E1E8 /* Check Pods Manifest.lock */,
 				A4780E941CBA940B00EF9609 /* Sources */,
 				A4780E951CBA940B00EF9609 /* Frameworks */,
 				A4780E961CBA940B00EF9609 /* Resources */,
+				8084BE6680EB6280C876E1FC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,14 +311,139 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		44B7A6291BE3EA8281BD062C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrainHelperTests/Pods-TrainHelperTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BB74BEBD6A7FA36F4DD1F50 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrainHelper/Pods-TrainHelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8084BE6680EB6280C876E1FC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrainHelperUITests/Pods-TrainHelperUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A179CD7D9C402F6F55C7E1E8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A858D951C4B1387BF8777F79 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C58BF70A6928A8FF90CC8129 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrainHelperTests/Pods-TrainHelperTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9B53605A2502CAFA681B590 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrainHelper/Pods-TrainHelper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBE54E4BD867B64B0D3ADDD1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4780E721CBA940B00EF9609 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A4780E821CBA940B00EF9609 /* TrainHelper.xcdatamodeld in Sources */,
-				A4780E7C1CBA940B00EF9609 /* ViewController.swift in Sources */,
+				A4780E7C1CBA940B00EF9609 /* MapViewController.swift in Sources */,
+				A42B72F61CBA9C0500AE8D40 /* TrainListTableViewController.swift in Sources */,
 				A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */,
+				A42B72FB1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,28 +581,36 @@
 		};
 		A4780EA21CBA940B00EF9609 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 593E60BE376C1C1F093F06FF /* Pods-TrainHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TrainHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrainHelper/TrainHelper-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A4780EA31CBA940B00EF9609 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C4FFC4AF878C684A29909C2 /* Pods-TrainHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TrainHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrainHelper/TrainHelper-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		A4780EA51CBA940B00EF9609 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 879CFAE238D97050BC6BEFFA /* Pods-TrainHelperTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TrainHelperTests/Info.plist;
@@ -436,6 +623,7 @@
 		};
 		A4780EA61CBA940B00EF9609 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1558F3E83980B927E9EA1C7A /* Pods-TrainHelperTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TrainHelperTests/Info.plist;
@@ -448,6 +636,7 @@
 		};
 		A4780EA81CBA940B00EF9609 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A921B0E60EDC48239757247D /* Pods-TrainHelperUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = TrainHelperUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -460,6 +649,7 @@
 		};
 		A4780EA91CBA940B00EF9609 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 081A703F33EE5D47EA11F21A /* Pods-TrainHelperUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = TrainHelperUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -489,6 +679,7 @@
 				A4780EA31CBA940B00EF9609 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4780EA41CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +688,7 @@
 				A4780EA61CBA940B00EF9609 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4780EA71CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +697,7 @@
 				A4780EA91CBA940B00EF9609 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
