@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E791CBA940B00EF9609 /* AppDelegate.swift */; };
+		A4780E7C1CBA940B00EF9609 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E7B1CBA940B00EF9609 /* ViewController.swift */; };
+		A4780E7F1CBA940B00EF9609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4780E7D1CBA940B00EF9609 /* Main.storyboard */; };
+		A4780E821CBA940B00EF9609 /* TrainHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4780E801CBA940B00EF9609 /* TrainHelper.xcdatamodeld */; };
+		A4780E841CBA940B00EF9609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4780E831CBA940B00EF9609 /* Assets.xcassets */; };
+		A4780E871CBA940B00EF9609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */; };
+		A4780E921CBA940B00EF9609 /* TrainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E911CBA940B00EF9609 /* TrainHelperTests.swift */; };
+		A4780E9D1CBA940B00EF9609 /* TrainHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4780E8E1CBA940B00EF9609 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4780E6E1CBA940B00EF9609 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4780E751CBA940B00EF9609;
+			remoteInfo = TrainHelper;
+		};
+		A4780E991CBA940B00EF9609 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4780E6E1CBA940B00EF9609 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4780E751CBA940B00EF9609;
+			remoteInfo = TrainHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A4780E761CBA940B00EF9609 /* TrainHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4780E791CBA940B00EF9609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A4780E7B1CBA940B00EF9609 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A4780E7E1CBA940B00EF9609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4780E811CBA940B00EF9609 /* TrainHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrainHelper.xcdatamodel; sourceTree = "<group>"; };
+		A4780E831CBA940B00EF9609 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4780E861CBA940B00EF9609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4780E881CBA940B00EF9609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4780E8D1CBA940B00EF9609 /* TrainHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4780E911CBA940B00EF9609 /* TrainHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainHelperTests.swift; sourceTree = "<group>"; };
+		A4780E931CBA940B00EF9609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4780E981CBA940B00EF9609 /* TrainHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainHelperUITests.swift; sourceTree = "<group>"; };
+		A4780E9E1CBA940B00EF9609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4780E731CBA940B00EF9609 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4780E8A1CBA940B00EF9609 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4780E951CBA940B00EF9609 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A4780E6D1CBA940B00EF9609 = {
+			isa = PBXGroup;
+			children = (
+				A4780E781CBA940B00EF9609 /* TrainHelper */,
+				A4780E901CBA940B00EF9609 /* TrainHelperTests */,
+				A4780E9B1CBA940B00EF9609 /* TrainHelperUITests */,
+				A4780E771CBA940B00EF9609 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A4780E771CBA940B00EF9609 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4780E761CBA940B00EF9609 /* TrainHelper.app */,
+				A4780E8D1CBA940B00EF9609 /* TrainHelperTests.xctest */,
+				A4780E981CBA940B00EF9609 /* TrainHelperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4780E781CBA940B00EF9609 /* TrainHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A4780E791CBA940B00EF9609 /* AppDelegate.swift */,
+				A4780E7B1CBA940B00EF9609 /* ViewController.swift */,
+				A4780E7D1CBA940B00EF9609 /* Main.storyboard */,
+				A4780E831CBA940B00EF9609 /* Assets.xcassets */,
+				A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */,
+				A4780E881CBA940B00EF9609 /* Info.plist */,
+				A4780E801CBA940B00EF9609 /* TrainHelper.xcdatamodeld */,
+			);
+			path = TrainHelper;
+			sourceTree = "<group>";
+		};
+		A4780E901CBA940B00EF9609 /* TrainHelperTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4780E911CBA940B00EF9609 /* TrainHelperTests.swift */,
+				A4780E931CBA940B00EF9609 /* Info.plist */,
+			);
+			path = TrainHelperTests;
+			sourceTree = "<group>";
+		};
+		A4780E9B1CBA940B00EF9609 /* TrainHelperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */,
+				A4780E9E1CBA940B00EF9609 /* Info.plist */,
+			);
+			path = TrainHelperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4780E751CBA940B00EF9609 /* TrainHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4780EA11CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelper" */;
+			buildPhases = (
+				A4780E721CBA940B00EF9609 /* Sources */,
+				A4780E731CBA940B00EF9609 /* Frameworks */,
+				A4780E741CBA940B00EF9609 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrainHelper;
+			productName = TrainHelper;
+			productReference = A4780E761CBA940B00EF9609 /* TrainHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A4780E8C1CBA940B00EF9609 /* TrainHelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4780EA41CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperTests" */;
+			buildPhases = (
+				A4780E891CBA940B00EF9609 /* Sources */,
+				A4780E8A1CBA940B00EF9609 /* Frameworks */,
+				A4780E8B1CBA940B00EF9609 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4780E8F1CBA940B00EF9609 /* PBXTargetDependency */,
+			);
+			name = TrainHelperTests;
+			productName = TrainHelperTests;
+			productReference = A4780E8D1CBA940B00EF9609 /* TrainHelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A4780E971CBA940B00EF9609 /* TrainHelperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4780EA71CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperUITests" */;
+			buildPhases = (
+				A4780E941CBA940B00EF9609 /* Sources */,
+				A4780E951CBA940B00EF9609 /* Frameworks */,
+				A4780E961CBA940B00EF9609 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4780E9A1CBA940B00EF9609 /* PBXTargetDependency */,
+			);
+			name = TrainHelperUITests;
+			productName = TrainHelperUITests;
+			productReference = A4780E981CBA940B00EF9609 /* TrainHelperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4780E6E1CBA940B00EF9609 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = huoteng;
+				TargetAttributes = {
+					A4780E751CBA940B00EF9609 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = XPXAPTEPJX;
+					};
+					A4780E8C1CBA940B00EF9609 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = XPXAPTEPJX;
+						TestTargetID = A4780E751CBA940B00EF9609;
+					};
+					A4780E971CBA940B00EF9609 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = XPXAPTEPJX;
+						TestTargetID = A4780E751CBA940B00EF9609;
+					};
+				};
+			};
+			buildConfigurationList = A4780E711CBA940B00EF9609 /* Build configuration list for PBXProject "TrainHelper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4780E6D1CBA940B00EF9609;
+			productRefGroup = A4780E771CBA940B00EF9609 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4780E751CBA940B00EF9609 /* TrainHelper */,
+				A4780E8C1CBA940B00EF9609 /* TrainHelperTests */,
+				A4780E971CBA940B00EF9609 /* TrainHelperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4780E741CBA940B00EF9609 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4780E871CBA940B00EF9609 /* LaunchScreen.storyboard in Resources */,
+				A4780E841CBA940B00EF9609 /* Assets.xcassets in Resources */,
+				A4780E7F1CBA940B00EF9609 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4780E8B1CBA940B00EF9609 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4780E961CBA940B00EF9609 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4780E721CBA940B00EF9609 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4780E821CBA940B00EF9609 /* TrainHelper.xcdatamodeld in Sources */,
+				A4780E7C1CBA940B00EF9609 /* ViewController.swift in Sources */,
+				A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4780E891CBA940B00EF9609 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4780E921CBA940B00EF9609 /* TrainHelperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4780E941CBA940B00EF9609 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4780E9D1CBA940B00EF9609 /* TrainHelperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A4780E8F1CBA940B00EF9609 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4780E751CBA940B00EF9609 /* TrainHelper */;
+			targetProxy = A4780E8E1CBA940B00EF9609 /* PBXContainerItemProxy */;
+		};
+		A4780E9A1CBA940B00EF9609 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4780E751CBA940B00EF9609 /* TrainHelper */;
+			targetProxy = A4780E991CBA940B00EF9609 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A4780E7D1CBA940B00EF9609 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4780E7E1CBA940B00EF9609 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4780E861CBA940B00EF9609 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4780E9F1CBA940B00EF9609 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A4780EA01CBA940B00EF9609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4780EA21CBA940B00EF9609 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TrainHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A4780EA31CBA940B00EF9609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TrainHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A4780EA51CBA940B00EF9609 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TrainHelperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrainHelper.app/TrainHelper";
+			};
+			name = Debug;
+		};
+		A4780EA61CBA940B00EF9609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TrainHelperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrainHelper.app/TrainHelper";
+			};
+			name = Release;
+		};
+		A4780EA81CBA940B00EF9609 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TrainHelperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TrainHelper;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		A4780EA91CBA940B00EF9609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TrainHelperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huoteng.TrainHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TrainHelper;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4780E711CBA940B00EF9609 /* Build configuration list for PBXProject "TrainHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4780E9F1CBA940B00EF9609 /* Debug */,
+				A4780EA01CBA940B00EF9609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4780EA11CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4780EA21CBA940B00EF9609 /* Debug */,
+				A4780EA31CBA940B00EF9609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A4780EA41CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4780EA51CBA940B00EF9609 /* Debug */,
+				A4780EA61CBA940B00EF9609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A4780EA71CBA940B00EF9609 /* Build configuration list for PBXNativeTarget "TrainHelperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4780EA81CBA940B00EF9609 /* Debug */,
+				A4780EA91CBA940B00EF9609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A4780E801CBA940B00EF9609 /* TrainHelper.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A4780E811CBA940B00EF9609 /* TrainHelper.xcdatamodel */,
+			);
+			currentVersion = A4780E811CBA940B00EF9609 /* TrainHelper.xcdatamodel */;
+			path = TrainHelper.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A4780E6E1CBA940B00EF9609 /* Project object */;
+}
