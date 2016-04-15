@@ -11,7 +11,7 @@ import Alamofire
 import SWXMLHash
 
 class WeatherModel {
-    func getWeatherInfo() {
+    func getWeatherInfo(cityName: String, resultHandler:() -> ()) {
         
         let parameter = ["q": "shanghai", "appid": "b1b15e88fa797225412429c1c50c122a", "mode": "xml"]
         

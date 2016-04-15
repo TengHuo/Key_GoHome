@@ -9,6 +9,8 @@
 import UIKit
 
 class TrainTimeTableViewController: UITableViewController {
+    
+    var schedule = ["time1", "time2", "time3", "time4"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +31,23 @@ class TrainTimeTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return schedule.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("timeCell", forIndexPath: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = schedule[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

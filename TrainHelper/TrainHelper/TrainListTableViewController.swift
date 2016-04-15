@@ -22,8 +22,26 @@ class TrainListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-//        TrainModel().getTrainSchedule()
-        WeatherModel().getWeatherInfo()
+//        TrainModel().getTrainSchedule(from: "", to: "", trainNum: "", resultHandler:)
+//        TrainModel().getTrainStations()
+//        TrainModel().getTrainList()
+//        WeatherModel().getWeatherInfo()
+        
+//        let testName = ["test1", "test2", "tset3"]
+//        let testCode = ["c1", "c2", "c3"]
+        
+        
+//        let test = DataController()
+//        test.testAddData(testName, codes: testCode)
+//        test.getData()
+        
+//        test.deleteAll()
+//        test.testQuery("test")
+//        test.displayData()
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import JavaScriptCore
+import SwiftyJSON
 
 class TrainModel {
     
@@ -43,14 +44,10 @@ class TrainModel {
         var finalPath: NSURL?
         
         Alamofire.download(.GET, "https://kyfw.12306.cn/otn/resources/js/framework/station_name.js", destination: { (temporaryURL, response) in
-            if let directoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] as? NSURL {
-                
-                fileName = response.suggestedFilename!
-                finalPath = directoryURL.URLByAppendingPathComponent(fileName!)
-                return finalPath!
-            }
-            
-            return temporaryURL
+            let directoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            fileName = response.suggestedFilename!
+            finalPath = directoryURL.URLByAppendingPathComponent(fileName!)
+            return finalPath!
         }).response { (request, response, data, error) -> Void in
             if error != nil {
                 print("REQUEST: \(request)")
@@ -73,9 +70,19 @@ class TrainModel {
                         
                         let stationStr = context.evaluateScript("station_names")
                         let stationsList = stationStr.toString().componentsSeparatedByString("@")
+                        let stationInfoList = stationsList.map { $0.componentsSeparatedByString("|") }
                         
-                        print("station_names:\(stationsList)")
-                        stationsList.map { print("station:\($0)") }
+                        var stationInfo = [(String, String)]()
+                        for info in stationInfoList {
+                            if info.count > 1 {
+                                stationInfo.append((info[1], info[2]))
+                            }
+                        }
+                        
+                        //存数据库
+                        
+                        
+                        print(stationInfo)
                     }
                     catch {
                         print("ERROR")
@@ -91,14 +98,10 @@ class TrainModel {
         var finalPath: NSURL?
         
         Alamofire.download(.GET, "https://kyfw.12306.cn/otn/resources/js/query/train_list.js", destination: { (temporaryURL, response) in
-            if let directoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] as? NSURL {
-                
-                fileName = response.suggestedFilename!
-                finalPath = directoryURL.URLByAppendingPathComponent(fileName!)
-                return finalPath!
-            }
-            
-            return temporaryURL
+            let directoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            fileName = response.suggestedFilename!
+            finalPath = directoryURL.URLByAppendingPathComponent(fileName!)
+            return finalPath!
         }).response { (request, response, data, error) -> Void in
             if error != nil {
                 print("REQUEST: \(request)")
@@ -114,25 +117,59 @@ class TrainModel {
                     
                     //reading
                     do {
-                        let stationJS = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+                        let trainsJS = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
                         
                         let context = JSContext()
-                        context.evaluateScript(stationJS as String)
+                        context.evaluateScript(trainsJS as String)
+                        context.evaluateScript("var trainArrayD = train_list['2016-01-31']['D'];")
+                        context.evaluateScript("var trainArrayT = train_list['2016-01-31']['T'];")
+                        context.evaluateScript("var trainArrayZ = train_list['2016-01-31']['Z'];")
+                        context.evaluateScript("var trainArrayG = train_list['2016-01-31']['G'];")
+                        context.evaluateScript("var trainArrayC = train_list['2016-01-31']['C'];")
+                        context.evaluateScript("var trainArrayO = train_list['2016-01-31']['O'];")
+                        context.evaluateScript("var trainArrayK = train_list['2016-01-31']['K'];")
+                        context.evaluateScript("var trains = [].concat(trainArrayD).concat(trainArrayT).concat(trainArrayZ).concat(trainArrayG).concat(trainArrayC).concat(trainArrayO).concat(trainArrayK);")
+                        context.evaluateScript("var trainsInfo = [];for (var i = trains.length - 1; i >= 0; i--) {trainsInfo.push(trains[i]['station_train_code'] + '|' + trains[i]['train_no']);}")
                         
-                        let trainsDict = context.evaluateScript("train_list").toDictionary()
+//                        let trainsArrayD = context.evaluateScript("trainArrayD").toArray()
+//                        let trainsArrayT = context.evaluateScript("trainArrayT").toArray()
+//                        let trainsArrayZ = context.evaluateScript("trainArrayZ").toArray()
+//                        let trainsArrayG = context.evaluateScript("trainArrayG").toArray()
+//                        let trainsArrayC = context.evaluateScript("trainArrayC").toArray()
+//                        let trainsArrayO = context.evaluateScript("trainArrayO").toArray()
+//                        let trainsArrayK = context.evaluateScript("trainArrayK").toArray()
+//                        
+//                        print("D:\(trainsArrayD.count),T:\(trainsArrayT.count),Z:\(trainsArrayZ.count),G:\(trainsArrayG.count),C:\(trainsArrayC.count),O:\(trainsArrayO.count),K:\(trainsArrayK.count)")
+//                        print("Sum:\(trainsArrayO.count + trainsArrayC.count + trainsArrayD.count + trainsArrayG.count + trainsArrayT.count + trainsArrayZ.count + trainsArrayK.count)")
                         
-                        print("train_list:\(trainsDict)")
+                        let trainsInfo = context.evaluateScript("trainsInfo").toArray()
+                        let list = trainsInfo.map({ (train) -> (String, String, String, String) in
+                            let trainDetail = train as! String
+                            let details = trainDetail.componentsSeparatedByString("|")
+                            let codeAndStart = details[0].componentsSeparatedByString("-")[0]
+                            let code = codeAndStart.componentsSeparatedByString("(")[0]
+                            let start = codeAndStart.componentsSeparatedByString("(")[1]
+                            let end = details[0].componentsSeparatedByString("-")[1].componentsSeparatedByString(")")[0]
+                            let number = details[1]
+                            
+                            return (code, start, end, number)
+                        })
+                        
+                        //存数据库
+                        
+                        print("First:\(list[0].0)")
+                        print("Last:\(list[list.count-1].0)")
+                        print("Lenght:\(list.count)")
                     }
                     catch {
                         print("ERROR")
                     }
                 }
-                
             }
         }
     }
     
-    func getTrainSchedule() {
+    func getTrainSchedule(from startStation: String, to toStation: String, trainNum: String, resultHandler: ([StopStation]?) -> Void) {
         
         let departDate = "2016-04-01"
         let toStation = "SHH"
@@ -147,8 +184,27 @@ class TrainModel {
                 print(response.response) // URL response
                 print(response.result)   // result of response serialization
                 
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    
+                    let data = json["data"]["data"].array!
+                    var stopStations = [StopStation]()
+                    data.forEach({ (stationInfo) -> () in
+                        let start_station_name = stationInfo["start_station_name"].string
+                        let end_station_name = stationInfo["end_station_name"].string
+                        let train_class_name = stationInfo["train_class_name"].string
+                        let stopover_time = stationInfo["stopover_time"].string
+                        let arrive_time = stationInfo["arrive_time"].string
+                        let start_time = stationInfo["start_time"].string
+                        let station_name = stationInfo["station_name"].string
+                        
+                        let stopStation = StopStation(startStation: start_station_name, arrive: arrive_time!, station: station_name!, trainClass: train_class_name, startTime: start_time!, stopover: stopover_time!, endStation: end_station_name)
+                        stopStations.append(stopStation)
+                    })
+                    
+                    resultHandler(stopStations)
+                } else {
+                    resultHandler(nil)
                 }
         }
     }
