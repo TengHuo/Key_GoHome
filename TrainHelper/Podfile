@@ -9,6 +9,8 @@ pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'SWXMLHash', '~> 2.3.0'
 pod 'AMap2DMap'
 pod 'AMapSearch'
+pod 'MJRefresh'
+pod 'MBProgressHUD', '~> 0.9.2'
 end
 
 target 'TrainHelperTests' do

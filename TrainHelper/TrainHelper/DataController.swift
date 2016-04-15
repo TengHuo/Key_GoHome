@@ -19,7 +19,7 @@ class DataController: NSObject {
     }
     
     //Train list function
-    func storeTrainList(trainList: [(String, String, String, String)], resultHandler: (Bool) -> Void) throws {
+    func storeTrainList(trainList: [(String, String, String, String)]) throws {
         trainList.forEach { (code, start, end, number) -> () in
             let newTrain = NSEntityDescription.insertNewObjectForEntityForName("TrainList", inManagedObjectContext: manageContext)
             newTrain.setValue(code, forKey: "trainCode")
@@ -30,15 +30,13 @@ class DataController: NSObject {
         
         do {
             try manageContext.save()
-            resultHandler(true)
         } catch {
-            resultHandler(false)
             print("Failure to save context: \(error)")
             throw CoreDataError.storeError
         }
     }
     
-    func getTrainsFromCoreData(page: Int, size: Int, resultHandler: ([TrainList]?) -> Void) throws {
+    func getTrainsFromCoreData(page: Int, size: Int, resultHandler: ([TrainList]?) -> Void) {
         let fetchRequest = NSFetchRequest(entityName: "TrainList")
         
         fetchRequest.fetchLimit = size
@@ -51,7 +49,6 @@ class DataController: NSObject {
         } catch {
             resultHandler(nil)
             print("Failure to save context: \(error)")
-            throw CoreDataError.queryError
         }
 
     }
@@ -87,7 +84,7 @@ class DataController: NSObject {
     
     
     //Train station function
-    func storeStationList(stations: [(String, String)], resultHandler: (Bool) -> Void) throws {
+    func storeStationList(stations: [(String, String)]) throws {
         stations.forEach { (name, code) -> () in
             let newTrain = NSEntityDescription.insertNewObjectForEntityForName("Station", inManagedObjectContext: manageContext)
             newTrain.setValue(name, forKey: "name")
@@ -96,9 +93,7 @@ class DataController: NSObject {
         
         do {
             try manageContext.save()
-            resultHandler(true)
         } catch {
-            resultHandler(false)
             print("Failure to save context: \(error)")
             throw CoreDataError.storeError
         }

@@ -13,6 +13,8 @@ import SwiftyJSON
 
 class TrainModel {
     
+    let dataModel = DataController()
+    
     init() {
         let manager = Alamofire.Manager.sharedInstance
         manager.delegate.sessionDidReceiveChallenge = { session, challenge in
@@ -39,7 +41,7 @@ class TrainModel {
 
     }
     
-    func getTrainStations() {
+    func getTrainStations(resultHandler: (Bool) -> Void) {
         var fileName: String?
         var finalPath: NSURL?
         
@@ -80,12 +82,16 @@ class TrainModel {
                         }
                         
                         //存数据库
-                        
-                        
-                        print(stationInfo)
+                        do {
+                            try self.dataModel.storeStationList(stationInfo)
+                            resultHandler(true)
+                        } catch {
+                            resultHandler(false)
+                        }
                     }
                     catch {
                         print("ERROR")
+                        resultHandler(false)
                     }
                 }
 
@@ -93,7 +99,7 @@ class TrainModel {
         }
     }
     
-    func getTrainList() {
+    func getTrainList(resultHandler: (Bool) -> ()) {
         var fileName: String?
         var finalPath: NSURL?
         
@@ -156,13 +162,20 @@ class TrainModel {
                         })
                         
                         //存数据库
+                        do {
+                            try self.dataModel.storeTrainList(list)
+                            resultHandler(true)
+                        } catch {
+                            resultHandler(false)
+                        }
                         
-                        print("First:\(list[0].0)")
-                        print("Last:\(list[list.count-1].0)")
-                        print("Lenght:\(list.count)")
+//                        print("First:\(list[0].0)")
+//                        print("Last:\(list[list.count-1].0)")
+//                        print("Lenght:\(list.count)")
                     }
                     catch {
                         print("ERROR")
+                        resultHandler(false)
                     }
                 }
             }

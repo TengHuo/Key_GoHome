@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import MJRefresh
+import MBProgressHUD
 
 class TrainListTableViewController: UITableViewController {
     
+    var trainList = [TrainList]()
     
-    let trainList = ["D1", "D2", "D3", "D4", "D5", "D6", "D7"]
+    let trainModel = TrainModel()
+    let dataModel = DataController()
+    var page = 0
+    let size = 30
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +45,81 @@ class TrainListTableViewController: UITableViewController {
 //        test.testQuery("test")
 //        test.displayData()
         
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { () -> Void in
+            print("RefreshingHeader")
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            //刷新CoreData库
+            do {
+                try self.dataModel.deleteAllTrainList({ (result) -> Void in
+                    if result {
+                        print("delete train list in core data success")
+                        self.trainModel.getTrainList({ (result) -> () in
+                            if result {
+                                print("store success")
+                                self.dataModel.getTrainsFromCoreData(0, size: self.size, resultHandler: { (list) -> Void in
+                                    if let trains = list {
+                                        self.trainList = trains
+                                        self.tableView.reloadData()
+                                        hud.hide(true)
+                                    }
+                                })
+                            } else {
+                                print("store trains fail")
+                            }
+                        })
+                    } else {
+                        print("delete train list in core data fail")
+                    }
+                })
+            } catch {
+                print("throw exception delete data fail")
+            }
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                
+                self.tableView.mj_header.endRefreshing()
+            }
+        })
         
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: { () -> Void in
+            print("RefreshingFooter")
+            
+            //加载更多数据
+            self.dataModel.getTrainsFromCoreData(self.page, size: self.size, resultHandler: { (list) -> Void in
+                if let trains = list {
+                    self.trainList.appendContentsOf(trains)
+                    self.tableView.reloadData()
+                }
+            })
+            
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                self.tableView.mj_footer.endRefreshing()
+            }
+        })
         
+        tableView.mj_header.automaticallyChangeAlpha = true
         
+        //从Coredata中加载数据
+        dataModel.getTrainsFromCoreData(0, size: size, resultHandler: { (list) -> Void in
+            if let trains = list {
+                self.trainList = trains
+                if self.trainList.count == 0 {
+                    //如果没有数据提示用户下拉刷新
+                    let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                    hud.mode = .Text
+                    hud.labelText = "暂无数据"
+                    hud.detailsLabelText = "下拉更新数据"
+                    hud.hide(true, afterDelay: 2.0)
+                } else {
+                    self.tableView.reloadData()
+                }
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -65,7 +135,7 @@ class TrainListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("trainCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = trainList[indexPath.row]
+        cell.textLabel?.text = trainList[indexPath.row].trainCode
 
         return cell
     }
@@ -106,7 +176,7 @@ class TrainListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -114,6 +184,6 @@ class TrainListTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
