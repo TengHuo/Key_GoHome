@@ -1,17 +1,14 @@
 //
-//  TrainListTableViewController.swift
+//  ShopInfoTableViewController.swift
 //  TrainHelper
 //
-//  Created by Teng on 4/10/16.
+//  Created by Teng on 4/13/16.
 //  Copyright © 2016 huoteng. All rights reserved.
 //
 
 import UIKit
 
-class TrainListTableViewController: UITableViewController {
-    
-    
-    let trainList = ["D1", "D2", "D3", "D4", "D5", "D6", "D7"]
+class ShopInfoTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +18,6 @@ class TrainListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-//        TrainModel().getTrainSchedule()
-        WeatherModel().getWeatherInfo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,23 +29,23 @@ class TrainListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return trainList.count
+        return 0
     }
 
-    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("trainCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
-        cell.textLabel?.text = trainList[indexPath.row]
+        // Configure the cell...
 
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.

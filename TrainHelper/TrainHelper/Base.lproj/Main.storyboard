@@ -5,76 +5,100 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="UFM-uO-lIO">
+        <!--列车时刻表-->
+        <scene sceneID="YCW-Kr-z0y">
             <objects>
-                <viewController id="8CO-IA-20L" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qSh-EY-dYC">
+                <tableViewController id="REI-xK-owv" customClass="TrainTimeTableViewController" customModule="TrainHelper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vjt-Ke-YSf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="列车时刻表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cEx-dX-vaz">
-                                <rect key="frame" x="14" y="213" width="85" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="xSH-JL-KEj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OWC-Tc-NCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeCell" id="pNX-U2-ps8">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pNX-U2-ps8" id="Lt7-2d-98R">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="REI-xK-owv" id="mnM-Uo-jiB"/>
+                            <outlet property="delegate" destination="REI-xK-owv" id="wNF-mc-PH9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="列车时刻表" id="Ab5-Xw-ql3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOF-ib-HM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1217" y="387"/>
+            <point key="canvasLocation" x="1215" y="395"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ZFk-gf-pYl">
+        <!--车站和天气信息-->
+        <scene sceneID="Y5b-Dw-TJE">
             <objects>
-                <viewController id="JIL-tJ-9Jv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OVm-WZ-oQ1">
+                <tableViewController id="GCh-qq-XXe" customClass="StationWeatherInfoTableViewController" customModule="TrainHelper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gh4-Cn-8zk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车站信息和天气" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pbx-jO-1sK">
-                                <rect key="frame" x="48" y="273" width="119" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="kDt-as-eOG">
-                        <barButtonItem key="rightBarButtonItem" title="团购信息" id="8Uu-FD-ZMh">
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="d1e-YY-gaZ">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d1e-YY-gaZ" id="z3m-L1-yLv">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GCh-qq-XXe" id="83R-ke-a8A"/>
+                            <outlet property="delegate" destination="GCh-qq-XXe" id="6Vh-wY-KxY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="车站和天气信息" id="uc8-CX-Ii6">
+                        <barButtonItem key="rightBarButtonItem" title="团购信息" id="1XU-4H-Vff">
                             <connections>
-                                <segue destination="QjT-BF-kT6" kind="push" id="3B4-iI-kXk"/>
+                                <segue destination="Byj-3N-gw6" kind="push" id="fyh-Ki-wEB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oIq-80-zDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjQ-Cd-Yx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="1194"/>
+            <point key="canvasLocation" x="1733" y="1194"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="z5u-GF-uCl">
+        <!--团购信息列表-->
+        <scene sceneID="mvc-UF-kY4">
             <objects>
-                <viewController id="QjT-BF-kT6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Age-7O-aDa">
+                <tableViewController id="Byj-3N-gw6" customClass="ShopInfoTableViewController" customModule="TrainHelper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sRe-RJ-Ldq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="cgv-xf-EFa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8st-Ew-aJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="S4R-P7-IOT">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S4R-P7-IOT" id="ebX-ah-yHJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Byj-3N-gw6" id="ce6-5k-bo1"/>
+                            <outlet property="delegate" destination="Byj-3N-gw6" id="eub-Q6-hOh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="团购信息列表" id="qdl-HT-g90"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaL-XO-2h7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="1176"/>
+            <point key="canvasLocation" x="2231" y="1194"/>
         </scene>
-        <!--Train List Table View Controller-->
+        <!--车次列表-->
         <scene sceneID="ghy-cg-FIA">
             <objects>
                 <tableViewController id="UHx-va-pUL" customClass="TrainListTableViewController" customModule="TrainHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,15 +107,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="un2-4p-RVR">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="trainCell" textLabel="sou-wS-gnp" style="IBUITableViewCellStyleDefault" id="un2-4p-RVR">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="un2-4p-RVR" id="qM0-SY-jn3">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sou-wS-gnp">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="8CO-IA-20L" kind="push" id="D7R-G5-4Zv"/>
+                                    <segue destination="REI-xK-owv" kind="push" id="bkv-sG-d6O"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -100,7 +133,7 @@
                             <outlet property="delegate" destination="UHx-va-pUL" id="gbP-2z-Kx8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Z6D-tO-e1x">
+                    <navigationItem key="navigationItem" title="车次列表" id="Z6D-tO-e1x">
                         <barButtonItem key="leftBarButtonItem" title="车站地图" id="MSc-Ec-Rzl">
                             <connections>
                                 <segue destination="6ZT-7c-fNb" kind="push" id="aHI-1y-Wyh"/>
@@ -125,7 +158,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="车站详情"/>
                                 <connections>
-                                    <segue destination="JIL-tJ-9Jv" kind="push" id="HVc-wZ-GaV"/>
+                                    <segue destination="GCh-qq-XXe" kind="push" id="0rQ-uR-ce8"/>
                                 </connections>
                             </button>
                         </subviews>

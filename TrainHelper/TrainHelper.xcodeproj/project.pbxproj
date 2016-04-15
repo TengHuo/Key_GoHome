@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40BC27C1CBFCE8800F1CC87 /* TrainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC27B1CBFCE8800F1CC87 /* TrainModel.swift */; };
+		A40BC27E1CBFF1BD00F1CC87 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC27D1CBFF1BD00F1CC87 /* ShopModel.swift */; };
+		A40BC2801CBFF1D800F1CC87 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC27F1CBFF1D800F1CC87 /* WeatherModel.swift */; };
+		A40BC2861CC0D1A100F1CC87 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC2851CC0D1A100F1CC87 /* DataModel.swift */; };
 		A42B72F61CBA9C0500AE8D40 /* TrainListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */; };
 		A42B72FB1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */; };
 		A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E791CBA940B00EF9609 /* AppDelegate.swift */; };
@@ -17,6 +21,9 @@
 		A4780E871CBA940B00EF9609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */; };
 		A4780E921CBA940B00EF9609 /* TrainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E911CBA940B00EF9609 /* TrainHelperTests.swift */; };
 		A4780E9D1CBA940B00EF9609 /* TrainHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */; };
+		A4A62B371CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A62B361CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift */; };
+		A4A62B391CBE655B003C3A6F /* ShopInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A62B381CBE655B003C3A6F /* ShopInfoTableViewController.swift */; };
+		A4A62B3B1CBE690F003C3A6F /* TrainTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A62B3A1CBE690F003C3A6F /* TrainTimeTableViewController.swift */; };
 		CA0A56A97F4A105E536ACC13 /* Pods_TrainHelperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99A55E298CBF02A854664D6 /* Pods_TrainHelperTests.framework */; };
 		F076E5B34FD292946DFB10EC /* Pods_TrainHelperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4474B2497BFA4D0A675FC356 /* Pods_TrainHelperUITests.framework */; };
 		F6F64298896DFB934C020ADE /* Pods_TrainHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94E95EA0C22F9B64BE5C311 /* Pods_TrainHelper.framework */; };
@@ -46,6 +53,10 @@
 		593E60BE376C1C1F093F06FF /* Pods-TrainHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelper/Pods-TrainHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		879CFAE238D97050BC6BEFFA /* Pods-TrainHelperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelperTests/Pods-TrainHelperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C4FFC4AF878C684A29909C2 /* Pods-TrainHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelper/Pods-TrainHelper.release.xcconfig"; sourceTree = "<group>"; };
+		A40BC27B1CBFCE8800F1CC87 /* TrainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainModel.swift; sourceTree = "<group>"; };
+		A40BC27D1CBFF1BD00F1CC87 /* ShopModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
+		A40BC27F1CBFF1D800F1CC87 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		A40BC2851CC0D1A100F1CC87 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainListTableViewController.swift; sourceTree = "<group>"; };
 		A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TrainHelper-Bridging-Header.h"; sourceTree = "<group>"; };
 		A4780E761CBA940B00EF9609 /* TrainHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +73,9 @@
 		A4780E981CBA940B00EF9609 /* TrainHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainHelperUITests.swift; sourceTree = "<group>"; };
 		A4780E9E1CBA940B00EF9609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4A62B361CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationWeatherInfoTableViewController.swift; sourceTree = "<group>"; };
+		A4A62B381CBE655B003C3A6F /* ShopInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopInfoTableViewController.swift; sourceTree = "<group>"; };
+		A4A62B3A1CBE690F003C3A6F /* TrainTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainTimeTableViewController.swift; sourceTree = "<group>"; };
 		A921B0E60EDC48239757247D /* Pods-TrainHelperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainHelperUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainHelperUITests/Pods-TrainHelperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A99A55E298CBF02A854664D6 /* Pods_TrainHelperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainHelperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94E95EA0C22F9B64BE5C311 /* Pods_TrainHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +132,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A40BC2811CC0A94900F1CC87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A40BC27F1CBFF1D800F1CC87 /* WeatherModel.swift */,
+				A40BC27B1CBFCE8800F1CC87 /* TrainModel.swift */,
+				A40BC27D1CBFF1BD00F1CC87 /* ShopModel.swift */,
+				A40BC2851CC0D1A100F1CC87 /* DataModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A40BC2821CC0A95C00F1CC87 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */,
+				A4A62B3A1CBE690F003C3A6F /* TrainTimeTableViewController.swift */,
+				A4A62B361CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift */,
+				A4A62B381CBE655B003C3A6F /* ShopInfoTableViewController.swift */,
+				A4780E7B1CBA940B00EF9609 /* MapViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		A4780E6D1CBA940B00EF9609 = {
 			isa = PBXGroup;
 			children = (
@@ -143,9 +180,9 @@
 		A4780E781CBA940B00EF9609 /* TrainHelper */ = {
 			isa = PBXGroup;
 			children = (
+				A40BC2821CC0A95C00F1CC87 /* ViewController */,
+				A40BC2811CC0A94900F1CC87 /* Model */,
 				A4780E791CBA940B00EF9609 /* AppDelegate.swift */,
-				A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */,
-				A4780E7B1CBA940B00EF9609 /* MapViewController.swift */,
 				A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */,
 				A4780E7D1CBA940B00EF9609 /* Main.storyboard */,
 				A4780E831CBA940B00EF9609 /* Assets.xcassets */,
@@ -440,10 +477,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4780E821CBA940B00EF9609 /* TrainHelper.xcdatamodeld in Sources */,
+				A4A62B391CBE655B003C3A6F /* ShopInfoTableViewController.swift in Sources */,
+				A4A62B371CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift in Sources */,
+				A40BC27E1CBFF1BD00F1CC87 /* ShopModel.swift in Sources */,
 				A4780E7C1CBA940B00EF9609 /* MapViewController.swift in Sources */,
+				A40BC2861CC0D1A100F1CC87 /* DataModel.swift in Sources */,
 				A42B72F61CBA9C0500AE8D40 /* TrainListTableViewController.swift in Sources */,
+				A4A62B3B1CBE690F003C3A6F /* TrainTimeTableViewController.swift in Sources */,
 				A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */,
 				A42B72FB1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h in Sources */,
+				A40BC27C1CBFCE8800F1CC87 /* TrainModel.swift in Sources */,
+				A40BC2801CBFF1D800F1CC87 /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
