@@ -110,8 +110,8 @@ class TrainModel {
             return finalPath!
         }).response { (request, response, data, error) -> Void in
             if error != nil {
-                print("REQUEST: \(request)")
-                print("RESPONSE: \(response)")
+//                print("REQUEST: \(request)")
+//                print("RESPONSE: \(response)")
             }
             
             if finalPath != nil {
@@ -185,17 +185,17 @@ class TrainModel {
     func getTrainSchedule(from startStation: String, to toStation: String, trainNum: String, resultHandler: ([StopStation]?) -> Void) {
         
         let departDate = "2016-04-01"
-        let toStation = "SHH"
-        let fromStation = "VNP"
-        let trainNo = "240000D3210B"
+//        let toStation = "SHH"
+//        let fromStation = "VNP"
+//        let trainNo = "240000D3210B"
         
-        let url = "https://kyfw.12306.cn/otn/czxx/queryByTrainNo?train_no=\(trainNo)&from_station_telecode=\(fromStation)&to_station_telecode=\(toStation)&depart_date=\(departDate)"
+        let url = "https://kyfw.12306.cn/otn/czxx/queryByTrainNo?train_no=\(trainNum)&from_station_telecode=\(startStation)&to_station_telecode=\(toStation)&depart_date=\(departDate)"
                 
         Alamofire.request(.GET, url, parameters: nil, encoding: .URL, headers: nil)
             .responseJSON {  response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.result)   // result of response serialization
+//                print(response.request)  // original URL request
+//                print(response.response) // URL response
+//                print(response.result)   // result of response serialization
                 
                 if let value = response.result.value {
                     let json = JSON(value)

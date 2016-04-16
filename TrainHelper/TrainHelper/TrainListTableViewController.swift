@@ -49,31 +49,14 @@ class TrainListTableViewController: UITableViewController {
             print("RefreshingHeader")
             let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             //刷新CoreData库
-            do {
-                try self.dataModel.deleteAllTrainList({ (result) -> Void in
-                    if result {
-                        print("delete train list in core data success")
-                        self.trainModel.getTrainList({ (result) -> () in
-                            if result {
-                                print("store success")
-                                self.dataModel.getTrainsFromCoreData(0, size: self.size, resultHandler: { (list) -> Void in
-                                    if let trains = list {
-                                        self.trainList = trains
-                                        self.tableView.reloadData()
-                                        hud.hide(true)
-                                    }
-                                })
-                            } else {
-                                print("store trains fail")
-                            }
-                        })
-                    } else {
-                        print("delete train list in core data fail")
-                    }
-                })
-            } catch {
-                print("throw exception delete data fail")
-            }
+            self.dataModel.getTrainsFromCoreData(0, size: self.size, resultHandler: { (list) -> Void in
+                if let trains = list {
+                    self.trainList = trains
+                    self.tableView.reloadData()
+                    hud.hide(true)
+                }
+            })
+
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 
                 self.tableView.mj_header.endRefreshing()
@@ -103,12 +86,36 @@ class TrainListTableViewController: UITableViewController {
             if let trains = list {
                 self.trainList = trains
                 if self.trainList.count == 0 {
-                    //如果没有数据提示用户下拉刷新
+                    //如果没有数据从远端加载
                     let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
                     hud.mode = .Text
                     hud.labelText = "暂无数据"
                     hud.detailsLabelText = "下拉更新数据"
-                    hud.hide(true, afterDelay: 2.0)
+                    do {
+                        try self.dataModel.deleteAllTrainList({ (result) -> Void in
+                            if result {
+                                print("delete train list in core data success")
+                                self.trainModel.getTrainList({ (result) -> () in
+                                    if result {
+                                        print("store success")
+                                        self.dataModel.getTrainsFromCoreData(0, size: self.size, resultHandler: { (list) -> Void in
+                                            if let trains = list {
+                                                self.trainList = trains
+                                                self.tableView.reloadData()
+                                                hud.hide(true)
+                                            }
+                                        })
+                                    } else {
+                                        print("store trains fail")
+                                    }
+                                })
+                            } else {
+                                print("delete train list in core data fail")
+                            }
+                        })
+                    } catch {
+                        print("throw exception delete data fail")
+                    }
                 } else {
                     self.tableView.reloadData()
                 }
@@ -175,14 +182,27 @@ class TrainListTableViewController: UITableViewController {
         return true
     }
     */
-
+    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let controller = TrainTimeTableViewController()
+////        let row = ( sender as! NSIndexPath ).row//Could not cast value of type 'UITableViewCell' (0x107a2c128) to 'NSIndexPath' (0x1063d7410).
+//        controller.title = self.trainList[indexPath.row].trainCode
+//        controller.trainNum = self.trainList[indexPath.row].trainNum
+//        controller.fromStation = self.trainList[indexPath.row].fromStation
+//        controller.toStation = self.trainList[indexPath.row].toStation
+//    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "Schedule") {
+            let controller = segue.destinationViewController as! TrainTimeTableViewController
+            controller.title = self.trainList[tableView.indexPathForSelectedRow!.row].trainCode
+            controller.trainNum = self.trainList[tableView.indexPathForSelectedRow!.row].trainNum
+            controller.fromStation = self.trainList[tableView.indexPathForSelectedRow!.row].fromStation
+            controller.toStation = self.trainList[tableView.indexPathForSelectedRow!.row].toStation
+        }
     }
     
 

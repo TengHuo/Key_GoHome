@@ -28,6 +28,7 @@
 		A4780E871CBA940B00EF9609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */; };
 		A4780E921CBA940B00EF9609 /* TrainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E911CBA940B00EF9609 /* TrainHelperTests.swift */; };
 		A4780E9D1CBA940B00EF9609 /* TrainHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */; };
+		A4A4C5B91CC25CCC0079FBB3 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4C5B81CC25CCC0079FBB3 /* BubbleView.swift */; };
 		A4A62B371CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A62B361CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift */; };
 		A4A62B391CBE655B003C3A6F /* ShopInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A62B381CBE655B003C3A6F /* ShopInfoTableViewController.swift */; };
 		A4A62B3B1CBE690F003C3A6F /* TrainTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A62B3A1CBE690F003C3A6F /* TrainTimeTableViewController.swift */; };
@@ -87,6 +88,7 @@
 		A4780E981CBA940B00EF9609 /* TrainHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainHelperUITests.swift; sourceTree = "<group>"; };
 		A4780E9E1CBA940B00EF9609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4A4C5B81CC25CCC0079FBB3 /* BubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		A4A62B361CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationWeatherInfoTableViewController.swift; sourceTree = "<group>"; };
 		A4A62B381CBE655B003C3A6F /* ShopInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopInfoTableViewController.swift; sourceTree = "<group>"; };
 		A4A62B3A1CBE690F003C3A6F /* TrainTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainTimeTableViewController.swift; sourceTree = "<group>"; };
@@ -162,9 +164,10 @@
 			children = (
 				A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */,
 				A4A62B3A1CBE690F003C3A6F /* TrainTimeTableViewController.swift */,
+				A4780E7B1CBA940B00EF9609 /* MapViewController.swift */,
 				A4A62B361CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift */,
 				A4A62B381CBE655B003C3A6F /* ShopInfoTableViewController.swift */,
-				A4780E7B1CBA940B00EF9609 /* MapViewController.swift */,
+				A4A4C5B81CC25CCC0079FBB3 /* BubbleView.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				A40BC2861CC0D1A100F1CC87 /* DataController.swift in Sources */,
 				A40BC28C1CC0D4F500F1CC87 /* Station.swift in Sources */,
 				A42B72F61CBA9C0500AE8D40 /* TrainListTableViewController.swift in Sources */,
+				A4A4C5B91CC25CCC0079FBB3 /* BubbleView.swift in Sources */,
 				A4A62B3B1CBE690F003C3A6F /* TrainTimeTableViewController.swift in Sources */,
 				A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */,
 				A42B72FB1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h in Sources */,

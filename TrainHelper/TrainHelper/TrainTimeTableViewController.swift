@@ -10,16 +10,57 @@ import UIKit
 
 class TrainTimeTableViewController: UITableViewController {
     
-    var schedule = ["time1", "time2", "time3", "time4"]
+    
+    var trainCode: String?
+    var trainNum: String?
+    var fromStation: String?
+    var toStation: String?
+    var schedule = [StopStation]()
+    let trainModel = TrainModel()
+    let dataModel = DataController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let _ = dataModel.getStationCodeByName(name: "北京北") else {
+            trainModel.getTrainStations({ (result) -> Void in
+                if result {
+                    print("success")
+                } else {
+                    print("error")
+                }
+            })
+            if let number = trainNum, startStation = dataModel.getStationCodeByName(name: fromStation!), endStation = dataModel.getStationCodeByName(name: toStation!)  {
+                
+                trainModel.getTrainSchedule(from: startStation, to: endStation, trainNum: number, resultHandler: { (result) -> Void in
+                    if let list = result {
+                        self.schedule = list
+                        self.tableView.reloadData()
+                    }
+                })
+                
+                
+            }
+            return
+        }
+        
+        if let number = trainNum, startStation = dataModel.getStationCodeByName(name: fromStation!), endStation = dataModel.getStationCodeByName(name: toStation!)  {
+            
+            trainModel.getTrainSchedule(from: startStation, to: endStation, trainNum: number, resultHandler: { (result) -> Void in
+                if let list = result {
+                    self.schedule = list
+                    self.tableView.reloadData()
+                }
+            })
+            
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +84,7 @@ class TrainTimeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("timeCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = schedule[indexPath.row]
+        cell.textLabel?.text = schedule[indexPath.row].stationName
 
         return cell
     }
@@ -84,14 +125,17 @@ class TrainTimeTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "Map") {
+            let controller = segue.destinationViewController as! MapViewController
+            controller.title = self.schedule[tableView.indexPathForSelectedRow!.row].stationName
+            controller.stationName = self.schedule[tableView.indexPathForSelectedRow!.row].stationName
+        }
     }
-    */
+    
 
 }

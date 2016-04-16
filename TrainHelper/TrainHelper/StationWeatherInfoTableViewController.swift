@@ -9,6 +9,8 @@
 import UIKit
 
 class StationWeatherInfoTableViewController: UITableViewController {
+    
+    var location:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +31,49 @@ class StationWeatherInfoTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        var identifier = ""
 
-        // Configure the cell...
+        if 0 == indexPath.row {
+            identifier = "weatherInfo"
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+            cell
+            let weaterhImage = cell.viewWithTag(100) as! UIImageView
+            weaterhImage.image = UIImage(named: "snow4")
+            let cityNameLabel = cell.viewWithTag(101) as! UILabel
+            cityNameLabel.text = location!
+            let weaterhInfoLabel = cell.viewWithTag(102) as! UILabel
+            weaterhInfoLabel.text = "test"
+            return cell
+        } else {
+            identifier = "cityInfo"
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+            
+            return cell
+        }
+        
 
-        return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 100.0
+        } else {
+            return 40.0
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

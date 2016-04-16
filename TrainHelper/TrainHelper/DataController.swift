@@ -132,8 +132,8 @@ class DataController: NSObject {
 
     }
     
-    func getStationCodeByName(name stationName: String) throws -> String? {
-        var code:String? = nil
+    func getStationCodeByName(name stationName: String) -> String? {
+        var code:String?
         let fetchRequest = NSFetchRequest(entityName: "Station")
         fetchRequest.predicate = NSPredicate(format: "name == %@", stationName)
         do {
@@ -142,7 +142,6 @@ class DataController: NSObject {
             code = station?.code
         } catch {
             print("Failure to save context: \(error)")
-            throw CoreDataError.queryError
         }
         return code
     }
