@@ -35,14 +35,13 @@ class StationWeatherInfoTableViewController: UITableViewController {
         }
         
         if let _ = city {
-            shopModel.getCityIdAndStore()
-//            if let id = dataController.getCityIdByName(city!) {
-//                shopModel.getShopInfo(id, resultHandler: { () -> () in
-//                    
-//                })
-//            } else {
-//                shopModel.getCityIdAndStore()
-//            }
+            if let id = dataController.getCityIdByName(city!) {
+                shopModel.getShopInfo(id, resultHandler: { () -> () in
+                    
+                })
+            } else {
+                shopModel.getCityIdAndStore()
+            }
         }
     }
 

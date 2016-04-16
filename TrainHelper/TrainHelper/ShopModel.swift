@@ -27,25 +27,26 @@ class ShopModel {
 //                print(response.data)     // 服务端返回的数据
                 
                 if let data = response.result.value {
-                    print("JSON: \(data)")
                     let jsonData = JSON(data)
                     let cityList = jsonData["cities"].array!
-                    let list = cityList.map({ (city) -> City in
+                    let list = cityList.map({ (city) -> CityInfo in
                         let name = city["city_name"].string!
                         let id = city["city_id"].int!
                         
-                        let newCity = City()
-                        newCity.name = name
-                        newCity.id = "\(id)"
+                        let newCity = CityInfo(name: name, id: id)
+
                         return newCity
                     })
                     
-                    print(list)
-//                    do {
-//                        try self.dataController.storeCityList(list)
-//                    } catch {
-//                        print("Store city error")
+//                    list.forEach {
+//                        print("name:\($0.name)")
+//                        print("id:\($0.id)")
 //                    }
+                    do {
+                        try self.dataController.storeCityList(list)
+                    } catch {
+                        print("Store city error")
+                    }
                 }
         }
     }

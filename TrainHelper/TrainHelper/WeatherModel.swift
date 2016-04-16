@@ -19,7 +19,7 @@ class WeatherModel {
             .response { (request, response, data, error) -> Void in
                 if let _ = data {
                     let xml = SWXMLHash.parse(data!)
-                    print("xml:\(xml)")
+//                    print("xml:\(xml)")
                     let tempMax = xml["current"]["temperature"][0].element!.attributes["max"]!
                     let tempMin = xml["current"]["temperature"][0].element!.attributes["min"]!
                     

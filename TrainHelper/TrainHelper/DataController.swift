@@ -147,11 +147,11 @@ class DataController: NSObject {
     }
     
     //For City ID list
-    func storeCityList(cityList: [City]) throws {
+    func storeCityList(cityList: [CityInfo]) throws {
         cityList.forEach { (city) -> () in
             let newCity = NSEntityDescription.insertNewObjectForEntityForName("City", inManagedObjectContext: manageContext)
-            newCity.setValue(city.name!, forKey: "name")
-            newCity.setValue(city.id!, forKey: "id")
+            newCity.setValue(city.name, forKey: "name")
+            newCity.setValue(city.id, forKey: "id")
         }
         
         do {
