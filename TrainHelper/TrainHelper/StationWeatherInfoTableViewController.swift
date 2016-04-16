@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 class StationWeatherInfoTableViewController: UITableViewController {
     
@@ -17,9 +18,30 @@ class StationWeatherInfoTableViewController: UITableViewController {
     let dataController = DataController()
     let weatherModel = WeatherModel()
     var weatherInfo:WeatherBean?
+    var shopList = [String]()
+    var page = 1
+    var cityId:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: { () -> Void in
+            print("RefreshingFooter")
+            
+            //加载更多数据
+            self.shopModel.getShopInfo(self.cityId, page: self.page, resultHandler: { result in
+                if let shops = result {
+                    self.shopList.appendContentsOf(shops)
+                    self.tableView.reloadData()
+                    self.page++
+                }
+            })
+            
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                self.tableView.mj_footer.endRefreshing()
+            }
+        })
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,8 +58,13 @@ class StationWeatherInfoTableViewController: UITableViewController {
         
         if let _ = city {
             if let id = dataController.getCityIdByName(city!) {
-                shopModel.getShopInfo(id, resultHandler: { () -> () in
-                    
+                self.cityId = id
+                shopModel.getShopInfo(id, page: 1, resultHandler: { result in
+                    if let shops = result {
+                        self.shopList = shops
+                        self.tableView.reloadData()
+                        self.page++
+                    }
                 })
             } else {
                 shopModel.getCityIdAndStore()
@@ -59,7 +86,7 @@ class StationWeatherInfoTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return shopList.count + 1
     }
 
     
@@ -86,9 +113,10 @@ class StationWeatherInfoTableViewController: UITableViewController {
             }
             return cell
         } else {
-            identifier = "cityInfo"
-            
+            identifier = "shopInfo"
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+            
+            cell.textLabel?.text = shopList[indexPath.row-1]
             
             return cell
         }
@@ -100,7 +128,7 @@ class StationWeatherInfoTableViewController: UITableViewController {
         if indexPath.row == 0 {
             return 150.0
         } else {
-            return 40.0
+            return 44.0
         }
     }
     

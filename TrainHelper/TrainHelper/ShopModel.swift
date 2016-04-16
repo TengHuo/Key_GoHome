@@ -51,18 +51,23 @@ class ShopModel {
         }
     }
     
-    func getShopInfo(cityId:String, resultHandler:() -> ()) {
+    func getShopInfo(cityId:String, page:Int, resultHandler:([String]?) -> ()) {
         
-        let parameter = ["city_id": cityId]
+        let parameter = ["city_id": cityId, "keyword": "美食", "page": page]
         
-        Alamofire.request(.GET, "http://apis.baidu.com/baidunuomi/openapi/searchdeals", parameters: parameter, encoding: .URL, headers: appkey)
+        Alamofire.request(.GET, "http://apis.baidu.com/baidunuomi/openapi/searchdeals", parameters: parameter as? [String : AnyObject], encoding: .URL, headers: appkey)
             .responseJSON { response in
-                print(response.request)  // 请求对象
-                print(response.response) // 响应对象
-                print(response.data)     // 服务端返回的数据
-                
                 if let data = response.result.value {
-                    print("shop detail:\(data)")
+                    let jsonData = JSON(data)
+                    print("shop detail:\(jsonData)")
+                    
+                    let deals = jsonData["data"]["deals"].array!
+                    
+                    let titleList = deals.map {
+                        $0["title"].string!
+                    }
+                    
+                    resultHandler(titleList)
                 }
         }
     }
