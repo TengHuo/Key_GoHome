@@ -146,7 +146,35 @@ class DataController: NSObject {
         return code
     }
     
+    //For City ID list
+    func storeCityList(cityList: [City]) throws {
+        cityList.forEach { (city) -> () in
+            let newCity = NSEntityDescription.insertNewObjectForEntityForName("City", inManagedObjectContext: manageContext)
+            newCity.setValue(city.name!, forKey: "name")
+            newCity.setValue(city.id!, forKey: "id")
+        }
+        
+        do {
+            try manageContext.save()
+        } catch {
+            print("Failure to save context: \(error)")
+            throw CoreDataError.storeError
+        }
+    }
     
+    func getCityIdByName(name:String) -> String? {
+        var city:City?
+        let fetchRequest = NSFetchRequest(entityName: "City")
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+        do {
+            let fetchResult = try manageContext.executeFetchRequest(fetchRequest)
+            city = fetchResult.last as? City
+        } catch {
+            print("Failure to save context: \(error)")
+            return nil
+        }
+        return city?.id
+    }
     
     
     //For Learning

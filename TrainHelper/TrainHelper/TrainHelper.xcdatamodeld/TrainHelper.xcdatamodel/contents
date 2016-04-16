@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="City" representedClassName=".City" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Station" representedClassName=".Station" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,5 +17,6 @@
     <elements>
         <element name="Station" positionX="-63" positionY="-18" width="128" height="73"/>
         <element name="TrainList" positionX="9" positionY="156" width="128" height="105"/>
+        <element name="City" positionX="-27" positionY="99" width="128" height="75"/>
     </elements>
 </model>

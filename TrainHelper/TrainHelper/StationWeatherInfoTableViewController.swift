@@ -10,16 +10,40 @@ import UIKit
 
 class StationWeatherInfoTableViewController: UITableViewController {
     
-    var location:String?
+    var city:String?
+    var location:CLLocation?
+    
+    let shopModel = ShopModel()
+    let dataController = DataController()
+    let weatherModel = WeatherModel()
+    var weatherInfo:WeatherBean?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let _ = location {
+            weatherModel.getWeatherInfo(location!.coordinate.latitude, lon: location!.coordinate.longitude, resultHandler: { ( result ) -> () in
+                if let info = result {
+                    self.weatherInfo = info
+                    self.tableView.reloadData()
+                }
+            })
+        }
+        
+        if let _ = city {
+            shopModel.getCityIdAndStore()
+//            if let id = dataController.getCityIdByName(city!) {
+//                shopModel.getShopInfo(id, resultHandler: { () -> () in
+//                    
+//                })
+//            } else {
+//                shopModel.getCityIdAndStore()
+//            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,13 +71,20 @@ class StationWeatherInfoTableViewController: UITableViewController {
             identifier = "weatherInfo"
             
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
-            cell
-            let weaterhImage = cell.viewWithTag(100) as! UIImageView
-            weaterhImage.image = UIImage(named: "snow4")
-            let cityNameLabel = cell.viewWithTag(101) as! UILabel
-            cityNameLabel.text = location!
-            let weaterhInfoLabel = cell.viewWithTag(102) as! UILabel
-            weaterhInfoLabel.text = "test"
+            if let info = weatherInfo {
+                let weaterhImage = cell.viewWithTag(100) as! UIImageView
+                weaterhImage.image = UIImage(named: getWeatherIconName(info.condition))
+                let cityNameLabel = cell.viewWithTag(101) as! UILabel
+                cityNameLabel.text = city!
+                let weaterhInfoLabel = cell.viewWithTag(102) as! UILabel
+                weaterhInfoLabel.text = "\(info.description)"
+                
+                let tempMinLabel = cell.viewWithTag(200) as! UILabel
+                tempMinLabel.text = "\(info.temperatureMin)"
+                
+                let tempMaxLabel = cell.viewWithTag(201) as! UILabel
+                tempMaxLabel.text = "\(info.temperatureMax)"
+            }
             return cell
         } else {
             identifier = "cityInfo"
@@ -68,12 +99,41 @@ class StationWeatherInfoTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 100.0
+            return 150.0
         } else {
             return 40.0
         }
     }
     
+    func getWeatherIconName(condition: Int) -> String {
+        var imageName = "dunno"
+        if (condition < 300) {
+            imageName = "tstorm1"
+        } else if (condition < 500) {
+            imageName = "light_rain"
+        } else if (condition < 600) {
+            imageName = "shower3"
+        } else if (condition < 700) {
+            imageName = "snow4"
+        } else if (condition < 771) {
+            imageName = "fog"
+        } else if (condition < 800) {
+            imageName = "sunny"
+        } else if (condition < 804) {
+            imageName = "cloudy2"
+        } else if (condition == 804) {
+            imageName = "overcast"
+        } else if ((condition >= 900 && condition < 903) || (condition > 904 && condition < 1000)) {
+            imageName = "tstorm3"
+        } else if (condition == 903) {
+            imageName = "snow5"
+        } else if (condition == 904) {
+            imageName = "sunny"
+        } else {
+            imageName = "dunno"
+        }
+        return imageName
+    }
 
     /*
     // Override to support conditional editing of the table view.

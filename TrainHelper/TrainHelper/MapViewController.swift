@@ -14,7 +14,8 @@ class MapViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate
     var mapView:MAMapView?
     var stationName:String?
     let search = AMapSearchAPI()
-
+    var locaiton:CLLocation?
+    var city:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +61,9 @@ class MapViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate
         let poi = response.pois.first as! AMapPOI
         let coordinate = CLLocationCoordinate2DMake(Double(poi.location.latitude), Double(poi.location.longitude))
         let pointAnnotation = MAPointAnnotation()
-
-
+        
+        self.locaiton = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        self.city = poi.city
         pointAnnotation.coordinate = coordinate
         pointAnnotation.title = poi.name
         mapView!.addAnnotation(pointAnnotation)
@@ -115,7 +117,8 @@ class MapViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "stationDetail" {
             let controller = segue.destinationViewController as! StationWeatherInfoTableViewController
-            controller.location = stationName!
+            controller.location = locaiton
+            controller.city = city
             controller.title = stationName
         }
     }
