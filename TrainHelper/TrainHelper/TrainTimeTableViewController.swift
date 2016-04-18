@@ -84,12 +84,19 @@ class TrainTimeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("timeCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = schedule[indexPath.row].stationName
+        let stationLabel = cell.viewWithTag(100) as! UILabel
+        stationLabel.text = schedule[indexPath.row].stationName
+        
+        let subtitle = cell.viewWithTag(101) as! UILabel
+        subtitle.text = schedule[indexPath.row].arriveTime
 
         return cell
     }
     
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

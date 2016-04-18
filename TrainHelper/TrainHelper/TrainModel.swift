@@ -199,7 +199,7 @@ class TrainModel {
                 
                 if let value = response.result.value {
                     let json = JSON(value)
-                    
+                                        
                     let data = json["data"]["data"].array!
                     var stopStations = [StopStation]()
                     data.forEach({ (stationInfo) -> () in
