@@ -39,12 +39,12 @@ class MapViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let pointAnnotation = MAPointAnnotation()
-        pointAnnotation.coordinate = CLLocationCoordinate2DMake(38.989631, 115.481018)
-        pointAnnotation.title = "测试"
-        pointAnnotation.subtitle = "细节"
-        
-        mapView!.addAnnotation(pointAnnotation)
+//        let pointAnnotation = MAPointAnnotation()
+//        pointAnnotation.coordinate = CLLocationCoordinate2DMake(38.989631, 115.481018)
+//        pointAnnotation.title = "测试"
+//        pointAnnotation.subtitle = "细节"
+//        
+//        mapView!.addAnnotation(pointAnnotation)
     }
     
     func onPOISearchDone(request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
@@ -119,7 +119,7 @@ class MapViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate
             let controller = segue.destinationViewController as! StationWeatherInfoTableViewController
             controller.location = locaiton
             controller.city = city
-            controller.title = stationName
+            controller.title = city
         }
     }
 

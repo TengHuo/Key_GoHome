@@ -18,7 +18,7 @@ class StationWeatherInfoTableViewController: UITableViewController {
     let dataController = DataController()
     let weatherModel = WeatherModel()
     var weatherInfo:WeatherBean?
-    var shopList = [String]()
+    var shopList = [ShopBean]()
     var page = 1
     var cityId:String!
 
@@ -102,8 +102,8 @@ class StationWeatherInfoTableViewController: UITableViewController {
                 weaterhImage.image = UIImage(named: getWeatherIconName(info.condition))
                 let cityNameLabel = cell.viewWithTag(101) as! UILabel
                 cityNameLabel.text = city!
-                let weaterhInfoLabel = cell.viewWithTag(102) as! UILabel
-                weaterhInfoLabel.text = "\(info.description)"
+//                let weaterhInfoLabel = cell.viewWithTag(102) as! UILabel
+//                weaterhInfoLabel.text = "\(info.description)"
                 
                 let tempMinLabel = cell.viewWithTag(200) as! UILabel
                 tempMinLabel.text = "\(info.temperatureMin)"
@@ -116,7 +116,8 @@ class StationWeatherInfoTableViewController: UITableViewController {
             identifier = "shopInfo"
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
             
-            cell.textLabel?.text = shopList[indexPath.row-1]
+            cell.textLabel?.text = shopList[indexPath.row-1].shopName
+            cell.detailTextLabel?.text = shopList[indexPath.row-1].detail
             
             return cell
         }

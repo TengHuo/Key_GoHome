@@ -18,6 +18,7 @@
 		A40BC2901CC122AC00F1CC87 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC28F1CC122AC00F1CC87 /* CoreDataError.swift */; };
 		A40BC2931CC129D000F1CC87 /* StopStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC2921CC129D000F1CC87 /* StopStation.swift */; };
 		A40BC2951CC13EB600F1CC87 /* GetDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC2941CC13EB600F1CC87 /* GetDataError.swift */; };
+		A427B7011CC4C62E0009DC62 /* ShopBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427B7001CC4C62E0009DC62 /* ShopBean.swift */; };
 		A42B72F61CBA9C0500AE8D40 /* TrainListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */; };
 		A42B72FB1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */; };
 		A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E791CBA940B00EF9609 /* AppDelegate.swift */; };
@@ -76,6 +77,7 @@
 		A40BC28F1CC122AC00F1CC87 /* CoreDataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
 		A40BC2921CC129D000F1CC87 /* StopStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopStation.swift; sourceTree = "<group>"; };
 		A40BC2941CC13EB600F1CC87 /* GetDataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDataError.swift; sourceTree = "<group>"; };
+		A427B7001CC4C62E0009DC62 /* ShopBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopBean.swift; sourceTree = "<group>"; };
 		A42B72F51CBA9C0500AE8D40 /* TrainListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainListTableViewController.swift; sourceTree = "<group>"; };
 		A42B72FA1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TrainHelper-Bridging-Header.h"; sourceTree = "<group>"; };
 		A4780E761CBA940B00EF9609 /* TrainHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 				A4A4C5BC1CC276960079FBB3 /* City+CoreDataProperties.swift */,
 				A4A4C5BD1CC276960079FBB3 /* City.swift */,
 				A4A4C5C01CC280B30079FBB3 /* CityInfo.swift */,
+				A427B7001CC4C62E0009DC62 /* ShopBean.swift */,
 			);
 			name = Bean;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				A40BC28E1CC0D4F500F1CC87 /* TrainList.swift in Sources */,
 				A4780E7C1CBA940B00EF9609 /* MapViewController.swift in Sources */,
 				A4A4C5BE1CC276960079FBB3 /* City+CoreDataProperties.swift in Sources */,
+				A427B7011CC4C62E0009DC62 /* ShopBean.swift in Sources */,
 				A40BC2951CC13EB600F1CC87 /* GetDataError.swift in Sources */,
 				A40BC2861CC0D1A100F1CC87 /* DataController.swift in Sources */,
 				A40BC28C1CC0D4F500F1CC87 /* Station.swift in Sources */,

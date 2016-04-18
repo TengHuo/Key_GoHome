@@ -51,7 +51,7 @@ class ShopModel {
         }
     }
     
-    func getShopInfo(cityId:String, page:Int, resultHandler:([String]?) -> ()) {
+    func getShopInfo(cityId:String, page:Int, resultHandler:([ShopBean]?) -> ()) {
         
         let parameter = ["city_id": cityId, "keyword": "美食", "page": page]
         
@@ -64,7 +64,7 @@ class ShopModel {
                     let deals = jsonData["data"]["deals"].array!
                     
                     let titleList = deals.map {
-                        $0["title"].string!
+                        ShopBean(name: $0["title"].string!, detail: $0["description"].string!)
                     }
                     
                     resultHandler(titleList)

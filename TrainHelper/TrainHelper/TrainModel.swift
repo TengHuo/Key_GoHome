@@ -184,7 +184,7 @@ class TrainModel {
     
     func getTrainSchedule(from startStation: String, to toStation: String, trainNum: String, resultHandler: ([StopStation]?) -> Void) {
         
-        let departDate = "2016-04-01"
+        let departDate = "2016-04-17"
 //        let toStation = "SHH"
 //        let fromStation = "VNP"
 //        let trainNo = "240000D3210B"
@@ -193,13 +193,13 @@ class TrainModel {
                 
         Alamofire.request(.GET, url, parameters: nil, encoding: .URL, headers: nil)
             .responseJSON {  response in
-//                print(response.request)  // original URL request
-//                print(response.response) // URL response
-//                print(response.result)   // result of response serialization
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.result)   // result of response serialization
                 
                 if let value = response.result.value {
                     let json = JSON(value)
-                                        
+                    print("Data:\(json)")
                     let data = json["data"]["data"].array!
                     var stopStations = [StopStation]()
                     data.forEach({ (stationInfo) -> () in
