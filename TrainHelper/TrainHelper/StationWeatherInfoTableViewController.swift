@@ -8,6 +8,7 @@
 
 import UIKit
 import MJRefresh
+import PKHUD
 
 class StationWeatherInfoTableViewController: UITableViewController {
     
@@ -44,14 +45,17 @@ class StationWeatherInfoTableViewController: UITableViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
+        HUD.show(.Progress)
         if let _ = location {
             weatherModel.getWeatherInfo(location!.coordinate.latitude, lon: location!.coordinate.longitude, resultHandler: { ( result ) -> () in
                 if let info = result {
                     self.weatherInfo = info
                     self.tableView.reloadData()
+                } else {
+                    HUD.flash(.LabeledError(title: "数据获取失败", subtitle: nil), delay: 1.0)
                 }
             })
         }
@@ -64,11 +68,17 @@ class StationWeatherInfoTableViewController: UITableViewController {
                         self.shopList = shops
                         self.tableView.reloadData()
                         self.page++
+                        HUD.flash(.Success, delay: 1.0)
+                    } else {
+                        HUD.flash(.LabeledError(title: "数据获取失败", subtitle: nil), delay: 1.0)
                     }
                 })
             } else {
                 shopModel.getCityIdAndStore()
             }
+        } else {
+            print("can't get city")
+            HUD.flash(.LabeledError(title: "数据获取失败", subtitle: nil), delay: 1.0)
         }
     }
 

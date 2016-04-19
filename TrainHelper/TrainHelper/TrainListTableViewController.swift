@@ -18,20 +18,25 @@ class TrainListTableViewController: UITableViewController {
     let dataModel = DataController()
     var page = 0
     let size = 30
+    
+    var completedUpdateStation = false
+    var completedUpdateTrainList = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { () -> Void in
             print("RefreshingHeader")
             //刷新CoreData库
-//            HUD.show(.Progress)
             self.dataModel.getTrainsFromCoreData(0, size: self.size, resultHandler: { (list) -> Void in
                 if let trains = list {
                     self.trainList = trains
                     self.tableView.reloadData()
-//                    HUD.hide(animated: true)
-                    HUD.flash(.Success, delay: 1.0)
+                    if 0 != self.trainList.count {
+                        HUD.flash(.Success, delay: 1.0)
+                    } else {
+                        HUD.flash(.LabeledError(title: "暂无数据", subtitle: "请更新数据库"), delay: 1.5)
+                    }
                 }
             })
 
@@ -58,21 +63,22 @@ class TrainListTableViewController: UITableViewController {
         })
         
         tableView.mj_header.automaticallyChangeAlpha = true
-        
+        getDataFromLocal()
+    }
+    
+    func getDataFromLocal() {
         //从Coredata中加载数据
         dataModel.getTrainsFromCoreData(0, size: size, resultHandler: { (list) -> Void in
             if let trains = list {
                 self.trainList = trains
                 if self.trainList.count == 0 {
-                    //如果没有数据从远端加载
-                    HUD.flash(.Label("暂无数据，请更新数据库后下拉刷新数据"), delay: 2.0)
+                    HUD.flash(.LabeledError(title: "暂无数据", subtitle: "请更新数据库"), delay: 1.5)
                 } else {
                     self.tableView.reloadData()
                 }
             }
         })
     }
-    
     
     @IBAction func updateCoreData(sender: AnyObject) {
         //更新数据库
@@ -81,15 +87,27 @@ class TrainListTableViewController: UITableViewController {
             HUD.show(.Progress)
             //更新train list
             do {
-                try self.dataModel.deleteAllTrainList({ (result) -> Void in
+                try self.dataModel.deleteAllTrainData({ (result) -> Void in
                     if result {
                         print("delete train list in core data success")
-                        self.trainModel.getTrainList({ (result) -> () in
-                            if result {
-                                print("store success")
-                                HUD.flash(.LabeledSuccess(title: "更新成功", subtitle: "请下拉刷新列表"), delay: 1.0)
+                        self.trainModel.getTrainList({ isSuccess in
+                            if isSuccess {
+                                print("store trains success")
+                                self.completedUpdateTrainList = true
+                                self.completedUpdateTrainData()
                             } else {
                                 print("store trains fail")
+                                HUD.flash(.LabeledError(title: "更新失败", subtitle: "请检查网络设置"), delay: 2.0)
+                            }
+                        })
+                        
+                        self.trainModel.getTrainStations({ isSuccess in
+                            if isSuccess {
+                                print("store station info success")
+                                self.completedUpdateStation = true
+                                self.completedUpdateTrainData()
+                            } else {
+                                print("store station info fail")
                                 HUD.flash(.LabeledError(title: "更新失败", subtitle: "请检查网络设置"), delay: 2.0)
                             }
                         })
@@ -102,23 +120,19 @@ class TrainListTableViewController: UITableViewController {
                 HUD.flash(.LabeledError(title: "更新失败", subtitle: "请检查网络设置"), delay: 2.0)
                 print("throw exception delete data fail")
             }
-            
-            //更新station list，把两个更新重构到一个函数里
-            do {
-                try self.dataModel.deleteAllStations { result in
-                    if result {
-                        
-                    }
-                }
-            } catch {
-                
-            }
         }
         let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         self.presentViewController(alertController, animated: true, completion: nil)
         
+    }
+    
+    func completedUpdateTrainData() {
+        if self.completedUpdateStation && self.completedUpdateTrainList {
+            HUD.flash(.LabeledSuccess(title: "更新成功", subtitle: nil), delay: 1.0)
+            getDataFromLocal()
+        }
     }
     
 
@@ -141,11 +155,22 @@ class TrainListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("trainCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = trainList[indexPath.row].trainCode
+        let trainCodeLabel = cell.viewWithTag(100) as! UILabel
+        trainCodeLabel.text = trainList[indexPath.row].trainCode
+        
+        let fromStationLabel = cell.viewWithTag(101) as! UILabel
+        fromStationLabel.text = trainList[indexPath.row].fromStation
+        
+        let toStationLabel = cell.viewWithTag(102) as! UILabel
+        toStationLabel.text = trainList[indexPath.row].toStation
 
         return cell
     }
     
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -29,7 +29,6 @@
 		A4780E871CBA940B00EF9609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4780E851CBA940B00EF9609 /* LaunchScreen.storyboard */; };
 		A4780E921CBA940B00EF9609 /* TrainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E911CBA940B00EF9609 /* TrainHelperTests.swift */; };
 		A4780E9D1CBA940B00EF9609 /* TrainHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */; };
-		A4A4C5B91CC25CCC0079FBB3 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4C5B81CC25CCC0079FBB3 /* BubbleView.swift */; };
 		A4A4C5BB1CC26AAB0079FBB3 /* WeatherBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4C5BA1CC26AAB0079FBB3 /* WeatherBean.swift */; };
 		A4A4C5BE1CC276960079FBB3 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4C5BC1CC276960079FBB3 /* City+CoreDataProperties.swift */; };
 		A4A4C5BF1CC276960079FBB3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4C5BD1CC276960079FBB3 /* City.swift */; };
@@ -93,7 +92,6 @@
 		A4780E981CBA940B00EF9609 /* TrainHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4780E9C1CBA940B00EF9609 /* TrainHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainHelperUITests.swift; sourceTree = "<group>"; };
 		A4780E9E1CBA940B00EF9609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4A4C5B81CC25CCC0079FBB3 /* BubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		A4A4C5BA1CC26AAB0079FBB3 /* WeatherBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherBean.swift; sourceTree = "<group>"; };
 		A4A4C5BC1CC276960079FBB3 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A4A4C5BD1CC276960079FBB3 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				A4A62B3A1CBE690F003C3A6F /* TrainTimeTableViewController.swift */,
 				A4780E7B1CBA940B00EF9609 /* MapViewController.swift */,
 				A4A62B361CBE6521003C3A6F /* StationWeatherInfoTableViewController.swift */,
-				A4A4C5B81CC25CCC0079FBB3 /* BubbleView.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -533,7 +530,6 @@
 				A40BC28C1CC0D4F500F1CC87 /* Station.swift in Sources */,
 				A4A4C5BB1CC26AAB0079FBB3 /* WeatherBean.swift in Sources */,
 				A42B72F61CBA9C0500AE8D40 /* TrainListTableViewController.swift in Sources */,
-				A4A4C5B91CC25CCC0079FBB3 /* BubbleView.swift in Sources */,
 				A4A62B3B1CBE690F003C3A6F /* TrainTimeTableViewController.swift in Sources */,
 				A4780E7A1CBA940B00EF9609 /* AppDelegate.swift in Sources */,
 				A42B72FB1CBAA1C500AE8D40 /* TrainHelper-Bridging-Header.h in Sources */,

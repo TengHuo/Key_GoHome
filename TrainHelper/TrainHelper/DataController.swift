@@ -53,21 +53,6 @@ class DataController: NSObject {
 
     }
     
-    func deleteAllTrainList(resultHandler: (Bool) -> Void) throws {
-        let coord = appDelegate.persistentStoreCoordinator
-        let fetchRequest = NSFetchRequest(entityName: "TrainList")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try coord.executeRequest(deleteRequest, withContext: manageContext)
-            resultHandler(true)
-        } catch {
-            resultHandler(false)
-            print("Failure to save context: \(error)")
-            throw CoreDataError.deleteError
-        }
-    }
-    
     func getTrainNumByTrainCode(trainCode: String) throws -> TrainList? {
         var train:TrainList? = nil
         let fetchRequest = NSFetchRequest(entityName: "TrainList")
@@ -116,22 +101,6 @@ class DataController: NSObject {
         }
     }
     
-    func deleteAllStations(resultHandler: (Bool) -> Void) throws {
-        let coord = appDelegate.persistentStoreCoordinator
-        let fetchRequest = NSFetchRequest(entityName: "Station")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try coord.executeRequest(deleteRequest, withContext: manageContext)
-            resultHandler(true)
-        } catch {
-            resultHandler(false)
-            print("Failure to save context: \(error)")
-            throw CoreDataError.deleteError
-        }
-
-    }
-    
     func getStationCodeByName(name stationName: String) -> String? {
         var code:String?
         let fetchRequest = NSFetchRequest(entityName: "Station")
@@ -174,5 +143,27 @@ class DataController: NSObject {
             return nil
         }
         return city?.id
+    }
+    
+    
+    //Delete Data
+    func deleteAllTrainData(resultHandler: (Bool) -> ()) throws {
+        let coord = appDelegate.persistentStoreCoordinator
+        let deleteStationFetchRequest = NSFetchRequest(entityName: "Station")
+        let deleteStationRequest = NSBatchDeleteRequest(fetchRequest: deleteStationFetchRequest)
+        
+        let deleteTrainFetchRequest = NSFetchRequest(entityName: "TrainList")
+        let deleteTrainRequest = NSBatchDeleteRequest(fetchRequest: deleteTrainFetchRequest)
+        
+        do {
+            try coord.executeRequest(deleteStationRequest, withContext: manageContext)
+            try coord.executeRequest(deleteTrainRequest, withContext: manageContext)
+            
+            resultHandler(true)
+        } catch {
+            resultHandler(false)
+            print("Failure to save context: \(error)")
+            throw CoreDataError.deleteError
+        }
     }
 }

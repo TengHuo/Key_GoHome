@@ -11,9 +11,15 @@ import Alamofire
 import JavaScriptCore
 import SwiftyJSON
 
+protocol UpdateTrainInfoDelegate {
+    func completedUpdateTrainData(test:String, test2:String)
+}
+
 class TrainModel {
     
     let dataModel = DataController()
+    var updateTrainInfoDelegate:UpdateTrainInfoDelegate?
+
     
     init() {
         let manager = Alamofire.Manager.sharedInstance
@@ -38,7 +44,8 @@ class TrainModel {
             
             return (disposition, credential)
         }
-
+//        updateTrainInfoDelegate = TrainListTableViewController()
+//        UpdateTrainInfoDelegate
     }
     
     func getTrainStations(resultHandler: (Bool) -> Void) {
