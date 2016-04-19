@@ -10,10 +10,11 @@ import UIKit
 import MJRefresh
 import PKHUD
 
-class TrainListTableViewController: UITableViewController {
+class TrainListTableViewController: UITableViewController, UISearchBarDelegate {
     
     var trainList = [TrainList]()
     
+    @IBOutlet weak var searchBar: UISearchBar!
     let trainModel = TrainModel()
     let dataModel = DataController()
     var page = 0
@@ -24,6 +25,8 @@ class TrainListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        searchBar.placeholder = "请输入要查询的车次"
         
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { () -> Void in
             print("RefreshingHeader")
@@ -171,7 +174,42 @@ class TrainListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
-
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+        
+        let target = searchBar.text!.regex("^(T|K|D|G|C|L|Z|A|Y|[1-7]){1}\\d{1,4}$")
+        print(target)
+        if target.count > 0 {
+            //搜索数据库
+            do {
+                if let searchTrain = try self.dataModel.getTrainNumByTrainCode(target[0]) {
+                    self.trainList = []
+                    trainList.append(searchTrain)
+                    self.tableView.reloadData()
+                } else {
+                    HUD.flash(.LabeledError(title: "没有找到结果", subtitle: nil), delay: 1.5)
+                }
+            } catch {
+                HUD.flash(.LabeledError(title: "没有找到结果", subtitle: nil), delay: 1.5)
+            }
+ 
+        } else {
+            HUD.flash(.LabeledError(title: "请输入正确的车次", subtitle: nil), delay: 1.5)
+        }
+        searchBar.text = nil
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -228,6 +266,25 @@ class TrainListTableViewController: UITableViewController {
             controller.toStation = self.trainList[tableView.indexPathForSelectedRow!.row].toStation
         }
     }
-    
+}
 
+extension String {
+    func regex (pattern: String) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions(rawValue: 0))
+            let nsstr = self as NSString
+            let all = NSRange(location: 0, length: nsstr.length)
+            var matches : [String] = [String]()
+            regex.enumerateMatchesInString(self, options: NSMatchingOptions(rawValue: 0), range: all) {
+                (result : NSTextCheckingResult?, _, _) in
+                if let r = result {
+                    let result = nsstr.substringWithRange(r.range) as String
+                    matches.append(result)
+                }
+            }
+            return matches
+        } catch {
+            return [String]()
+        }
+    }
 }
