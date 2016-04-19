@@ -30,7 +30,7 @@ class StationWeatherInfoTableViewController: UITableViewController {
             print("RefreshingFooter")
             
             //加载更多数据
-            self.shopModel.getShopInfo(self.cityId, page: self.page, resultHandler: { result in
+            self.shopModel.getShopInfoFromRemote(self.cityId, page: self.page, resultHandler: { result in
                 if let shops = result {
                     self.shopList.appendContentsOf(shops)
                     self.tableView.reloadData()
@@ -42,7 +42,27 @@ class StationWeatherInfoTableViewController: UITableViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
         })
+        
+        //上拉刷新
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { () -> Void in
+            print("RefreshingHeader")
+            
+            self.page = 0
+            self.shopModel.getShopInfoFromRemote(self.cityId, page: 0, resultHandler: { result in
+                if let shops = result {
+                    self.shopList = []
+                    self.shopList.appendContentsOf(shops)
+                    self.tableView.reloadData()
+                    self.page++
+                }
+            })
 
+            
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                
+                self.tableView.mj_header.endRefreshing()
+            }
+        })
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,7 +83,7 @@ class StationWeatherInfoTableViewController: UITableViewController {
         if let _ = city {
             if let id = dataController.getCityIdByName(city!) {
                 self.cityId = id
-                shopModel.getShopInfo(id, page: 1, resultHandler: { result in
+                shopModel.getShopInfoFromRemote(id, page: 1, resultHandler: { result in
                     if let shops = result {
                         self.shopList = shops
                         self.tableView.reloadData()
@@ -75,6 +95,7 @@ class StationWeatherInfoTableViewController: UITableViewController {
                 })
             } else {
                 shopModel.getCityIdAndStore()
+                HUD.flash(.LabeledError(title: "数据获取失败", subtitle: " 请上拉刷新列表"), delay: 1.0)
             }
         } else {
             print("can't get city")

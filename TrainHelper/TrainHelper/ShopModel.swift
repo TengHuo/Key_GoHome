@@ -51,7 +51,7 @@ class ShopModel {
         }
     }
     
-    func getShopInfo(cityId:String, page:Int, resultHandler:([ShopBean]?) -> ()) {
+    func getShopInfoFromRemote(cityId:String, page:Int, resultHandler:([ShopBean]?) -> ()) {
         
         let parameter = ["city_id": cityId, "keyword": "美食", "page": page]
         
