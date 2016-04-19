@@ -8,7 +8,7 @@
 
 import UIKit
 import MJRefresh
-import MBProgressHUD
+import PKHUD
 
 class TrainListTableViewController: UITableViewController {
     
@@ -22,38 +22,16 @@ class TrainListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-//        TrainModel().getTrainSchedule(from: "", to: "", trainNum: "", resultHandler:)
-//        TrainModel().getTrainStations()
-//        TrainModel().getTrainList()
-//        WeatherModel().getWeatherInfo()
-        
-//        let testName = ["test1", "test2", "tset3"]
-//        let testCode = ["c1", "c2", "c3"]
-        
-        
-//        let test = DataController()
-//        test.testAddData(testName, codes: testCode)
-//        test.getData()
-        
-//        test.deleteAll()
-//        test.testQuery("test")
-//        test.displayData()
-        
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { () -> Void in
             print("RefreshingHeader")
-            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             //刷新CoreData库
+//            HUD.show(.Progress)
             self.dataModel.getTrainsFromCoreData(0, size: self.size, resultHandler: { (list) -> Void in
                 if let trains = list {
                     self.trainList = trains
                     self.tableView.reloadData()
-                    hud.hide(true)
+//                    HUD.hide(animated: true)
+                    HUD.flash(.Success, delay: 1.0)
                 }
             })
 
@@ -87,41 +65,62 @@ class TrainListTableViewController: UITableViewController {
                 self.trainList = trains
                 if self.trainList.count == 0 {
                     //如果没有数据从远端加载
-                    let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-                    hud.mode = .Text
-                    hud.labelText = "暂无数据"
-                    hud.detailsLabelText = "下拉更新数据"
-                    do {
-                        try self.dataModel.deleteAllTrainList({ (result) -> Void in
-                            if result {
-                                print("delete train list in core data success")
-                                self.trainModel.getTrainList({ (result) -> () in
-                                    if result {
-                                        print("store success")
-                                        self.dataModel.getTrainsFromCoreData(0, size: self.size, resultHandler: { (list) -> Void in
-                                            if let trains = list {
-                                                self.trainList = trains
-                                                self.tableView.reloadData()
-                                                hud.hide(true)
-                                            }
-                                        })
-                                    } else {
-                                        print("store trains fail")
-                                    }
-                                })
-                            } else {
-                                print("delete train list in core data fail")
-                            }
-                        })
-                    } catch {
-                        print("throw exception delete data fail")
-                    }
+                    HUD.flash(.Label("暂无数据，请更新数据库后下拉刷新数据"), delay: 2.0)
                 } else {
                     self.tableView.reloadData()
                 }
             }
         })
     }
+    
+    
+    @IBAction func updateCoreData(sender: AnyObject) {
+        //更新数据库
+        let alertController = UIAlertController(title: "更新数据库", message: "更新数据库会下载较多数据，建议连接Wi-Fi", preferredStyle: .ActionSheet)
+        let confirmAction = UIAlertAction(title: "更新", style: .Destructive) { (action) -> Void in
+            HUD.show(.Progress)
+            //更新train list
+            do {
+                try self.dataModel.deleteAllTrainList({ (result) -> Void in
+                    if result {
+                        print("delete train list in core data success")
+                        self.trainModel.getTrainList({ (result) -> () in
+                            if result {
+                                print("store success")
+                                HUD.flash(.LabeledSuccess(title: "更新成功", subtitle: "请下拉刷新列表"), delay: 1.0)
+                            } else {
+                                print("store trains fail")
+                                HUD.flash(.LabeledError(title: "更新失败", subtitle: "请检查网络设置"), delay: 2.0)
+                            }
+                        })
+                    } else {
+                        HUD.flash(.LabeledError(title: "更新失败", subtitle: "请检查网络设置"), delay: 2.0)
+                        print("delete train list in core data fail")
+                    }
+                })
+            } catch {
+                HUD.flash(.LabeledError(title: "更新失败", subtitle: "请检查网络设置"), delay: 2.0)
+                print("throw exception delete data fail")
+            }
+            
+            //更新station list，把两个更新重构到一个函数里
+            do {
+                try self.dataModel.deleteAllStations { result in
+                    if result {
+                        
+                    }
+                }
+            } catch {
+                
+            }
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

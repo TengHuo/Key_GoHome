@@ -28,27 +28,27 @@ class TrainTimeTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let _ = dataModel.getStationCodeByName(name: "北京北") else {
-            trainModel.getTrainStations({ (result) -> Void in
-                if result {
-                    print("success")
-                } else {
-                    print("error")
-                }
-            })
-            if let number = trainNum, startStation = dataModel.getStationCodeByName(name: fromStation!), endStation = dataModel.getStationCodeByName(name: toStation!)  {
-                
-                trainModel.getTrainSchedule(from: startStation, to: endStation, trainNum: number, resultHandler: { (result) -> Void in
-                    if let list = result {
-                        self.schedule = list
-                        self.tableView.reloadData()
-                    }
-                })
-                
-                
-            }
-            return
-        }
+//        guard let _ = dataModel.getStationCodeByName(name: "北京北") else {
+//            trainModel.getTrainStations({ (result) -> Void in
+//                if result {
+//                    print("success")
+//                } else {
+//                    print("error")
+//                }
+//            })
+//            if let number = trainNum, startStation = dataModel.getStationCodeByName(name: fromStation!), endStation = dataModel.getStationCodeByName(name: toStation!)  {
+//                
+//                trainModel.getTrainSchedule(from: startStation, to: endStation, trainNum: number, resultHandler: { (result) -> Void in
+//                    if let list = result {
+//                        self.schedule = list
+//                        self.tableView.reloadData()
+//                    }
+//                })
+//                
+//                
+//            }
+//            return
+//        }
         
         if let number = trainNum, startStation = dataModel.getStationCodeByName(name: fromStation!), endStation = dataModel.getStationCodeByName(name: toStation!)  {
             
@@ -58,8 +58,8 @@ class TrainTimeTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             })
-            
-            
+        } else {
+            //Error topic
         }
     }
 
