@@ -144,16 +144,6 @@ class TrainModel {
                         context.evaluateScript("var trains = [].concat(trainArrayD).concat(trainArrayT).concat(trainArrayZ).concat(trainArrayG).concat(trainArrayC).concat(trainArrayO).concat(trainArrayK);")
                         context.evaluateScript("var trainsInfo = [];for (var i = trains.length - 1; i >= 0; i--) {trainsInfo.push(trains[i]['station_train_code'] + '|' + trains[i]['train_no']);}")
                         
-//                        let trainsArrayD = context.evaluateScript("trainArrayD").toArray()
-//                        let trainsArrayT = context.evaluateScript("trainArrayT").toArray()
-//                        let trainsArrayZ = context.evaluateScript("trainArrayZ").toArray()
-//                        let trainsArrayG = context.evaluateScript("trainArrayG").toArray()
-//                        let trainsArrayC = context.evaluateScript("trainArrayC").toArray()
-//                        let trainsArrayO = context.evaluateScript("trainArrayO").toArray()
-//                        let trainsArrayK = context.evaluateScript("trainArrayK").toArray()
-//                        
-//                        print("D:\(trainsArrayD.count),T:\(trainsArrayT.count),Z:\(trainsArrayZ.count),G:\(trainsArrayG.count),C:\(trainsArrayC.count),O:\(trainsArrayO.count),K:\(trainsArrayK.count)")
-//                        print("Sum:\(trainsArrayO.count + trainsArrayC.count + trainsArrayD.count + trainsArrayG.count + trainsArrayT.count + trainsArrayZ.count + trainsArrayK.count)")
                         
                         let trainsInfo = context.evaluateScript("trainsInfo").toArray()
                         let list = trainsInfo.map({ (train) -> (String, String, String, String) in
